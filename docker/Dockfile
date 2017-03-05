@@ -1,0 +1,10 @@
+FROM ubuntu:16.04
+MAINTAINER nerdneils
+RUN apt-get update && apt-get -y install mariadb-server python2.7 \
+    python-setuptools python-imaging python-ldap python-mysqldb  \
+    python-memcache python-urllib3
+RUN mkdir -p /pan
+WORKDIR /pan
+RUN wget http://seafile-downloads.oss-cn-shanghai.aliyuncs.com/seafile-server_6.0.8_x86-64.tar.gz
+RUN tar -xvf seafile-server_* && mkdir installed && mv seafile-server_* installed
+
